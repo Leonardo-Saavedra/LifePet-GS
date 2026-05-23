@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "author": "LifePet Squad - FIAP 2TDS",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -150, "left": 20, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -12.8,
+      "left": 188,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 110,
+      "left": -80,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 120,
+      "left": -80,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledHot",
+      "top": 73.2,
+      "left": -121,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledOk",
+      "top": 82.8,
+      "left": -159.4,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "dht1:VCC", "red", [ "h-10", "v-150" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:18", "blue", [ "v15.9", "h70.7", "v124.8" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-57.6", "v9.6" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-48", "v192.1", "h-139.39" ] ],
+    [ "lcd1:SCL", "esp:22", "gold", [ "h-28.8", "v-9.3" ] ],
+    [ "lcd1:SDA", "esp:21", "limegreen", [ "v0.2", "h-19.2", "v38.4" ] ],
+    [ "r1:1", "ledHot:A", "green", [ "v-0.45", "h-44.8" ] ],
+    [ "esp:26", "r1:2", "green", [ "h0" ] ],
+    [ "esp:27", "r2:2", "green", [ "v0" ] ],
+    [ "esp:GND.1", "ledHot:C", "black", [ "h0" ] ],
+    [ "esp:GND.1", "ledOk:C", "black", [ "h0" ] ],
+    [ "r2:1", "ledOk:A", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
