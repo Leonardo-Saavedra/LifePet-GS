@@ -1,7 +1,7 @@
 [wokwi]
 version = 1
-elf      = "build/esp32.esp32.esp32doit-devkit-v1/lifepet.ino.elf"
-firmware = "build/esp32.esp32.esp32doit-devkit-v1/lifepet.ino.bin"
+elf      = "build/esp32.esp32.esp32doit-devkit-v1/LifePet-GS.ino.elf"
+firmware = "build/esp32.esp32.esp32doit-devkit-v1/LifePet-GS.ino.bin"
 
 [[wifi]]
 ssid     = "Wokwi-GUEST"
